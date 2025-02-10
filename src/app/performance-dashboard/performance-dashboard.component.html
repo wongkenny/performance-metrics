@@ -1,0 +1,45 @@
+<div class="performance-dashboard">
+    <h2>Real-time Performance Metrics</h2>
+    
+    <div class="metrics-grid">
+      <div *ngFor="let metric of metrics | keyvalue" class="metric-card">
+        <div class="metric-header">
+          <h3>{{metric.key}}</h3>
+          <div class="metric-badge" [class.good]="isGoodMetric(metric.key, metric.value)"
+                                  [class.bad]="isBadMetric(metric.key, metric.value)">
+            {{getMetricStatus(metric.key, metric.value)}}
+          </div>
+        </div>
+        <div class="metric-value">{{formatMetricValue(metric.key, metric.value)}}</div>
+        <div class="metric-description">{{getMetricDescription(metric.key)}}</div>
+      </div>
+    </div>
+
+    <div class="metrics-snapshot">
+        <h3>Current Metrics Snapshot</h3>
+        <button (click)="takeSnapshot()" class="snapshot-button">Take Snapshot</button>
+        <div *ngIf="snapshot" class="snapshot-data">
+          <pre>{{snapshot | json}}</pre>
+        </div>
+      </div>
+
+    <div class="resource-timings" *ngIf="showResourceTimings">
+      <h3>Resource Timings</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>Duration</th>
+            <th>Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let resource of resourceTimings">
+            <td>{{resource.name | slice:-30}}</td>
+            <td>{{resource.duration.toFixed(2)}}ms</td>
+            <td>{{formatBytes(resource.transferSize)}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

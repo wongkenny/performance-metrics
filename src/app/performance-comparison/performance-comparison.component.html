@@ -1,0 +1,179 @@
+<div class="demo-container">
+    <h1>Performance Metrics Comparison</h1>
+
+    <!-- FCP Demo -->
+    <section class="metric-section">
+      <h2>First Contentful Paint (FCP)</h2>
+      <div class="metric-info">
+        <p>FCP measures how long it takes for the first piece of content to appear on your screen after starting to load a page.</p>
+        <ul>
+          <li>✅ Good: Under 1.8 seconds - Content appears almost instantly</li>
+          <li>❌ Poor: Over 3.0 seconds - Users see a blank screen for too long</li>
+        </ul>
+      </div>
+      <div class="comparison-grid">
+        <div class="demo-card good">
+          <h3>Good Example</h3>
+          <button (click)="showGoodFCP()">Test Good FCP</button>
+          <div #goodFcpDemo class="demo-content">
+            <p>Content loads immediately</p>
+          </div>
+        </div>
+        <div class="demo-card bad">
+          <h3>Bad Example</h3>
+          <button (click)="showBadFCP()">Test Bad FCP</button>
+          <div #badFcpDemo class="demo-content">
+            <p>Content loads with delay</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LCP Demo -->
+    <section class="metric-section">
+      <h2>Largest Contentful Paint (LCP)</h2>
+      <div class="metric-info">
+        <p>LCP measures when the largest content element (like a hero image or heading) becomes visible on the page.</p>
+        <ul>
+          <li>✅ Good: Under 2.5 seconds - Main content loads quickly</li>
+          <li>❌ Poor: Over 4.0 seconds - Large elements take too long to appear</li>
+        </ul>
+      </div>
+      <div class="comparison-grid">
+        <div class="demo-card good">
+          <h3>Good Example</h3>
+          <button (click)="showGoodLCP()">Test Good LCP</button>
+          <div #goodLcpDemo class="demo-content">
+            <div class="hero-image"></div>
+          </div>
+        </div>
+        <div class="demo-card bad">
+          <h3>Bad Example</h3>
+          <button (click)="showBadLCP()">Test Bad LCP</button>
+          <div #badLcpDemo class="demo-content">
+            <div class="hero-image"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INP Demo -->
+    <section class="metric-section">
+      <h2>Interaction to Next Paint (INP)</h2>
+      <div class="metric-info">
+        <p>INP measures how responsive your page is to user interactions (clicks, taps, and keyboard inputs).</p>
+        <ul>
+          <li>✅ Good: Under 200ms - Immediate response to user actions</li>
+          <li>❌ Poor: Over 500ms - Noticeable delay in response</li>
+        </ul>
+      </div>
+      <div class="comparison-grid">
+        <div class="demo-card good">
+          <h3>Good Example</h3>
+          <button (click)="testGoodINP()">Test Good Interaction</button>
+          <div class="demo-content">
+            <div class="interactive-element" #goodInpDemo>
+              Click me!
+            </div>
+          </div>
+        </div>
+        <div class="demo-card bad">
+          <h3>Bad Example</h3>
+          <button (click)="testBadINP()">Test Bad Interaction</button>
+          <div class="demo-content">
+            <div class="interactive-element" #badInpDemo>
+              Click me! (Slow)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLS Demo -->
+    <section class="metric-section">
+      <h2>Cumulative Layout Shift (CLS)</h2>
+      <div class="metric-info">
+        <p>CLS measures how much elements move around unexpectedly while the page loads, affecting visual stability.</p>
+        <ul>
+          <li>✅ Good: Under 0.1 - Content stays in place, no unexpected movements</li>
+          <li>❌ Poor: Over 0.25 - Content jumps around, causing poor user experience</li>
+        </ul>
+      </div>
+      <div class="comparison-grid">
+        <div class="demo-card good">
+          <h3>Good Example</h3>
+          <button (click)="testGoodCLS()">Test Good Layout</button>
+          <div class="demo-content" #goodClsDemo>
+            <div class="text-content">
+              <p>Content with reserved space</p>
+            </div>
+          </div>
+        </div>
+        <div class="demo-card bad">
+          <h3>Bad Example</h3>
+          <button (click)="testBadCLS()">Test Bad Layout</button>
+          <div class="demo-content" #badClsDemo>
+            <div class="text-content">
+              <p>Content without reserved space</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TBT Demo -->
+    <section class="metric-section">
+      <h2>Total Blocking Time (TBT)</h2>
+      <div class="metric-info">
+        <p>TBT measures how long the main thread is blocked, preventing user interactions during page load.</p>
+        <ul>
+          <li>✅ Good: Under 200ms - Page remains responsive during loading</li>
+          <li>❌ Poor: Over 600ms - Page becomes unresponsive to user input</li>
+        </ul>
+      </div>
+      <div class="comparison-grid">
+        <div class="demo-card good">
+          <h3>Good Example</h3>
+          <button (click)="testGoodTBT()">Test Good Performance</button>
+          <div class="demo-content progress-indicator">
+            <div #goodTbtDemo class="progress-bar"></div>
+          </div>
+        </div>
+        <div class="demo-card bad">
+          <h3>Bad Example</h3>
+          <button (click)="testBadTBT()">Test Bad Performance</button>
+          <div class="demo-content progress-indicator">
+            <div #badTbtDemo class="progress-bar"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TTFB Demo -->
+    <section class="metric-section">
+      <h2>Time to First Byte (TTFB)</h2>
+      <div class="metric-info">
+        <p>TTFB measures how long it takes for the server to respond with the first byte of data.</p>
+        <ul>
+          <li>✅ Good: Under 800ms - Quick server response time</li>
+          <li>❌ Poor: Over 1.8s - Slow server response affecting overall page load</li>
+        </ul>
+      </div>
+      <div class="comparison-grid">
+        <div class="demo-card good">
+          <h3>Good Example</h3>
+          <button (click)="testGoodTTFB()">Test Good Server Response</button>
+          <div class="demo-content" #goodTtfbDemo>
+            <div class="loading-indicator"></div>
+          </div>
+        </div>
+        <div class="demo-card bad">
+          <h3>Bad Example</h3>
+          <button (click)="testBadTTFB()">Test Bad Server Response</button>
+          <div class="demo-content" #badTtfbDemo>
+            <div class="loading-indicator"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
