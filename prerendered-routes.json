@@ -1,7 +1,0 @@
-{
-  "routes": {
-    "/performance-metrics": {},
-    "/performance-metrics/comparison": {},
-    "/performance-metrics/dashboard": {}
-  }
-}
